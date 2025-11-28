@@ -1,0 +1,333 @@
+/*
+====================================
+style.css - Full Stack Portfolio
+====================================
+Barvy: #33C4C4 (Akcent), Černá, Bílá
+Fonty: Inter (Nadpisy), IBM Plex Sans (Tělo)
+*/
+
+/* 1. Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Inter:wght@400;700;900&display=swap');
+
+/* 2. CSS Custom Properties (Proměnné) */
+:root {
+    /* Barvy - Sada 3: Forest Green */
+    --accent-color: #6723b5;    
+    --primary-text: #111111;    /* Tmavý Text */
+    --secondary-text: #FFFFFF;  /* Bílá */
+    --background-light: #FFFFFF; 
+    --background-dark: #212121; /* Tmavě Šedá (Měkčí tmavý režim) */
+    
+    /* Fonty */
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'IBM Plex Sans', sans-serif;
+    --font-code: 'IBM Plex Mono', monospace;
+    
+    /* Animace */
+    --transition-speed: 0.3s;
+    --border-radius: 4px;
+}
+
+/* 3. Základní Reset a Styly Těla */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background-light);
+    color: var(--primary-text);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-text);
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Zvýraznění textu v akcentní barvě */
+.accent-text {
+    color: var(--accent-color);
+}
+
+/* 4. Typografie (Nadpisy) */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    line-height: 1.1;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.section-title {
+    margin-bottom: 40px;
+}
+
+/* 5. Utility Třídy (Layout a Barvy) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Střídání sekcí */
+.section-light {
+    background-color: var(--background-light);
+    color: var(--primary-text);
+    padding: 80px 0;
+}
+
+.section-dark {
+    background-color: var(--background-dark);
+    color: var(--secondary-text);
+    padding: 80px 0;
+    text-align: center; /* Centrování obsahu v tmavých sekcích (např. Skills/Contact) */
+}
+
+/* 6. Navigace a Hlavička */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--background-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.main-header .logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary-text);
+}
+
+.main-nav a {
+    color: var(--secondary-text);
+    margin-left: 25px;
+    font-weight: 500;
+}
+
+/* 7. Sekce HERO */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 20px auto 40px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 8. Tlačítka (CTA) */
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--background-dark); 
+    border: none;
+    padding: 15px 30px;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(51, 196, 196, 0.4);
+    background-color: #38d6d6;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-text);
+    border: 2px solid var(--accent-color);
+    padding: 10px 20px;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed) ease;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--background-light);
+    box-shadow: 0 4px 8px rgba(51, 196, 196, 0.4);
+}
+
+/* 9. Karty Projektů/Dovedností */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card, .skill-card {
+    background-color: var(--background-light);
+    color: var(--primary-text);
+    padding: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed) ease;
+    text-align: left; /* Změna na left pro karty */
+}
+
+/* Dovednosti v tmavé sekci potřebují bílé karty */
+#skills .skill-card {
+    background-color: var(--secondary-text); 
+}
+
+.project-card:hover, .skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tech-tag {
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 3px 8px;
+    margin: 2px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    display: inline-block;
+    font-weight: 500;
+}
+
+/* 10. Sekce O MNĚ LAYOUT (speciální pro flex/grid) */
+.about-layout {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    text-align: left;
+}
+.about-content {
+    flex: 2;
+}
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+.profile-photo {
+    width: 100%; 
+    max-width: 300px; 
+    border-radius: 50%; /* Kruhový ořez */
+    border: 5px solid var(--accent-color); /* Akcentní rámeček */
+    height: auto;
+    object-fit: cover;
+}
+.about-pillars ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+.about-pillars ul li {
+    margin-bottom: 8px;
+    font-family: var(--font-body);
+    font-weight: 500;
+}
+
+/* 11. Kontaktní Formulář */
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: left;
+}
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Bílý rámeček v tmavé sekci */
+    background-color: transparent;
+    color: var(--secondary-text);
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+}
+.contact-form textarea::placeholder, .contact-form input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+.contact-form button {
+    width: 100%;
+    margin-top: 10px;
+}
+.social-links {
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+/* 12. Footer */
+.footer-content {
+    padding: 20px 0;
+}
+
+/* 13. Responzivita */
+@media (max-width: 900px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .main-header {
+        padding: 15px 20px;
+    }
+    .main-nav {
+        display: none;
+    }
+    .about-layout {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    .about-image {
+        order: -1; /* Fotka nahoru */
+    }
+    .about-pillars ul {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
